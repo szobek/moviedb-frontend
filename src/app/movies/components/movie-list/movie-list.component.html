@@ -1,0 +1,12 @@
+<main>
+    <h1>Movies</h1>
+    <div class="movie-list">
+        @for(movie of movies();track $index){
+        <div class="movie">
+            <h3>{{movie.title}}</h3>
+            <p>{{movie.description}}</p>
+        </div>
+        }
+
+    </div>
+</main>
