@@ -4,7 +4,9 @@
         @for(movie of movies();track $index){
         <div class="movie">
             <h3>{{movie.title}}</h3>
+            <p><small>{{movie.year}}</small></p>
             <p>{{movie.description}}</p>
+            <p><small>rating: {{movie.rating}}</small></p>
         </div>
         }
 
