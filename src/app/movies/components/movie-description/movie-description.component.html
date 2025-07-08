@@ -1,0 +1,9 @@
+<main>
+    @if(movie!==null){
+
+        <h1>{{movie()?.title}}</h1>
+        <p>{{movie()?.description}}</p>
+        <p><small>rating: {{movie()?.rating}}</small></p>
+    }
+</main>
+<button routerLink="/movies">back</button>

@@ -2,10 +2,13 @@ import { Component, signal, WritableSignal } from '@angular/core';
 import { CallService } from '../../sercvices/call.service';
 import { map } from 'rxjs';
 import { Movie } from '../../models/Movie.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
-  imports: [],
+  imports: [
+    RouterModule
+  ],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss'
 })

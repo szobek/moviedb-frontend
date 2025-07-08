@@ -9,10 +9,13 @@ import { Movie } from '../models/Movie.model';
 export class CallService {
   private readonly _BASE_URL = 'http://127.0.0.1:3000';
 
-
   constructor(private readonly http: HttpClient) { }
 
-  getAllMovie():Observable<any>{
-    return this.http.get(`${this._BASE_URL}/movies`)
+  getAllMovie():Observable<Movie[]>{
+    return this.http.get<Movie[]>(`${this._BASE_URL}/movies`)
+  }
+
+  getMovieById(id:number):Observable<Movie>{
+    return this.http.get<Movie>(`${this._BASE_URL}/movies/${id}`)
   }
 }
