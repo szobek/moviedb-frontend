@@ -1,13 +1,8 @@
 <main>
     <h1>Movies</h1>
     <div class="movie-list">
-        @for(movie of movies();track $index){
-        <div class="movie" routerLink="/movies/{{movie.id}}">
-            <h3>{{movie.title}}</h3>
-            <p><small>{{movie.year}}</small></p>
-            <p>{{movie.description}}</p>
-            <p><small>rating: {{movie.rating}}</small></p>
-        </div>
+        @for(movie of movies();track movie.movie_id){
+       <app-movie [inputMovie]="movie"></app-movie>
         }
 
     </div>

@@ -1,0 +1,31 @@
+@if(movie){
+<div class="movie" routerLink="/movies/{{movie.movie_id}}">
+    <h3>{{movie.title}}</h3>
+    <p><small>{{movie.year}}</small></p>
+    <p>{{movie.description}}</p>
+
+    @if(movie.genres.length>0){
+        <div class="genres">
+            <p>genre </p>
+            <ul>
+                @for(genre of movie.genres;track genre){
+                    <li>{{genre}}</li>
+                }
+            </ul>
+        </div>
+    }
+
+    @if(movie.actors.length>0){
+        <div class="actors">
+            <p>actors</p>
+            <ul>
+                @for(actor of movie.actors;track actor){
+                    <li>{{actor}}</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <p><small>rating: {{movie.rating}}</small></p>
+</div>
+}
