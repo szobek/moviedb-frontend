@@ -1,10 +1,10 @@
-@if(movie){
+@if(movie  ){
 <div class="movie" routerLink="/movies/{{movie.movie_id}}">
     <h3>{{movie.title}}</h3>
     <p><small>{{movie.year}}</small></p>
     <p>{{movie.description}}</p>
 
-    @if(movie.genres.length>0){
+    @if(movie.genres.length){
         <div class="genres">
             <p>genre </p>
             <ul>
@@ -15,7 +15,7 @@
         </div>
     }
 
-    @if(movie.actors.length>0){
+    @if(movie.actors.length){
         <div class="actors">
             <p>actors</p>
             <ul>

@@ -2,7 +2,6 @@ import { Component, signal, WritableSignal } from '@angular/core';
 import { CallService } from '../../sercvices/call.service';
 import { map } from 'rxjs';
 import { Movie } from '../../models/Movie.model';
-import { RouterModule } from '@angular/router';
 import { MovieComponent } from '../movie/movie.component';
 
 @Component({

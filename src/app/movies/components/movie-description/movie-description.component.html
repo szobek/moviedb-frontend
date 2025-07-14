@@ -1,8 +1,6 @@
 <main>
-    @if(movie!==null){
-
-        <h1>{{movie()?.title}}</h1>
-        <p>{{movie()?.description}}</p>
-        <p><small>rating: {{movie()?.rating}}</small></p>
+    @if(movie()){
+<app-movie [inputMovie]="movie()"></app-movie>
+        
     }
 </main>

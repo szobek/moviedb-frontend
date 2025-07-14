@@ -3,11 +3,12 @@ import { CallService } from '../../sercvices/call.service';
 import { map } from 'rxjs';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Movie } from '../../models/Movie.model';
+import { MovieComponent } from '../movie/movie.component';
 
 @Component({
   selector: 'app-movie-description',
   imports: [
-    RouterModule
+    RouterModule, MovieComponent
   ],
   templateUrl: './movie-description.component.html',
   styleUrl: './movie-description.component.scss'
