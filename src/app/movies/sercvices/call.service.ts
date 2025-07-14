@@ -18,4 +18,11 @@ export class CallService {
   getMovieById(id:number):Observable<Movie>{
     return this.http.get<Movie>(`${this._BASE_URL}/movies/${id}`)
   }
+  getAllGenres(){
+    return this.http.get<string[]>(`${this._BASE_URL}/movies/genres`)
+  }
+  getMoviesByGenre(genre:string="2"):Observable<Movie[]>{
+    // http://localhost:3000/movies/genres/2
+    return this.http.get<Movie[]>(`${this._BASE_URL}/movies/genres/${genre}`)
+  }
 }

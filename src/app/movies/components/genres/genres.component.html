@@ -1,0 +1,8 @@
+<main>
+    <ul>
+
+        @for(genre of genres();track genre.id){
+        <li routerLink="{{genre.id}}">{{genre.name}}</li>    
+        }
+    </ul>
+</main>
