@@ -1,4 +1,6 @@
 .movie {
+    max-width: 50vw;
+    margin: auto;
     background: linear-gradient(0deg, #ECFAE5, #CAE8BD);
     border: 1px solid #DDF6D2;
     border-radius: 10px;
@@ -7,9 +9,16 @@
     -webkit-box-shadow: 10px 10px 5px 0px rgba(130, 122, 122, 0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(130, 122, 122, 0.75);
 
-    .genres, .actors {
+    @media screen and (max-width: 500px) {
+        max-width: 90vw;
+
+    }
+
+    .genres,
+    .actors {
         font-size: small;
-        ul{
+
+        ul {
             list-style: none;
         }
     }
