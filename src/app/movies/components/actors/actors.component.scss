@@ -1,0 +1,11 @@
+.movie-list {
+    min-height: 100vh;
+    font-size: calc(10px + 1vmin);
+    color: black;
+    ul{
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 15px;
+    }
+}

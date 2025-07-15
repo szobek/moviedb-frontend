@@ -4,10 +4,12 @@ import { MovieDescriptionComponent } from './components/movie-description/movie-
 import { GenresComponent } from './components/genres/genres.component';
 import { MovieByGenreComponent } from './components/movie-by-genre/movie-by-genre.component';
 import { MovieSearchComponent } from './components/movie-search/movie-search.component';
+import { ActorsComponent } from './components/actors/actors.component';
 
 export const movieRoutes: Routes = [
     { path: '', component: MovieListComponent },
     { path: 'search', component: MovieSearchComponent },
+    { path: 'actors', component: ActorsComponent },
     { path: 'genres',component:GenresComponent},
     { path: 'genres/:id',component:MovieByGenreComponent},
     { path: ':id', component:MovieDescriptionComponent},

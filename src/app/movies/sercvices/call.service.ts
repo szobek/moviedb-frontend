@@ -31,4 +31,7 @@ export class CallService {
   searchMovies(criteria:any){
     return this.http.post(`${this._BASE_URL}/movies/search`,criteria)
   }
+  getMoviesByActor(id:number){
+    return this.http.get(`${this._BASE_URL}/movies/actors/${id}`)
+  }
 }

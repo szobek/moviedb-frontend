@@ -1,0 +1,16 @@
+<ul>
+    @for(actor of actors(); track actor.id){
+    <li (click)="getMovies(actor)">{{actor.fullName}}</li>    
+    }
+</ul>
+<hr>
+@if(selectedActorMovies().length){
+    <div class="movie-list">
+
+        <ul>
+            @for(movie of selectedActorMovies(); track movie.movie_id){
+                <li><app-movie [inputMovie]="movie" /></li>
+            }
+        </ul>
+    </div>
+}
