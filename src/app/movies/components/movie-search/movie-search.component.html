@@ -25,7 +25,12 @@
     }
 </select>
 <button (click)="search()">Search</button>
-<h2>results</h2>
-@for(movieData of movies();track movieData.movie_id){
-<app-movie [inputMovie]="movieData"></app-movie>
+<div class="movie-list">
+    @if(movies().length){
+    <h2>results</h2>
+
+    @for(movieData of movies();track movieData.movie_id){
+        <app-movie [inputMovie]="movieData"></app-movie>
+    }
 }
+</div>
