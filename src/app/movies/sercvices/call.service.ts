@@ -25,4 +25,10 @@ export class CallService {
   getMoviesByGenre(genre:string):Observable<Movie[]>{
     return this.http.get<Movie[]>(`${this._BASE_URL}/movies/genres/${genre}`)
   }
+  getAllActors(){
+    return this.http.get(`${this._BASE_URL}/movies/actors`)
+  }
+  searchMovies(criteria:any){
+    return this.http.post(`${this._BASE_URL}/movies/search`,criteria)
+  }
 }

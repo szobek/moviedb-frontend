@@ -1,1 +1,31 @@
-<p>movie-search works!</p>
+<h1>criterias</h1>
+<input type="text" [(ngModel)]="criteria.title" placeholder="Title">
+<select name="" id="" [(ngModel)]="criteria.genre">
+    <option value="">Please select genre</option>
+    @for(genre of genres();track genre.id){
+    <option value="{{genre.id}}">{{genre.name}}</option>
+    }
+</select>
+<select name="" id="" [(ngModel)]="criteria.actor">
+    <option value="">Please select an actor</option>
+    @for(actor of actors();track actor.id){
+    <option value="{{actor.fullName}}">{{actor.fullName}}</option>
+    }
+</select>
+<select name="" id="" [(ngModel)]="criteria.year">
+    <option value="">Please select a year</option>
+    @for(year of years;track year){
+    <option value="{{year}}">{{year}}</option>
+    }
+</select>
+<select name="" id="" [(ngModel)]="criteria.rating">
+    <option value="">Please select a rating</option>
+    @for(rate of ratings;track rate){
+    <option value="{{rate}}">{{rate}}</option>
+    }
+</select>
+<button (click)="search()">Search</button>
+<h2>results</h2>
+@for(movieData of movies();track movieData.movie_id){
+<app-movie [inputMovie]="movieData"></app-movie>
+}
