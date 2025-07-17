@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-nav',
@@ -13,8 +14,26 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class NavComponent {
   navOpen:boolean = false;
 
+  
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(event => {
+          this.closeNav();
+        })
+      )
+      .subscribe();
+  }
+
+closeNav() {
+    this.navOpen = false;
+  }
+
   toggleNav() {
-    this.navOpen = !this.navOpen;
+    this.navOpen=this.navOpen?false:true
   }
 
 }
