@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@use "./styles/variables.scss";
+
 body{
-    padding: 5px;
+    padding: 0;
+    margin: 0;
+    font-family: variables.$body-primary-text;
 }

@@ -1,0 +1,18 @@
+@use "../../../styles/variables.scss";
+nav{
+    padding: 0;
+    .navbar-collapse{
+        background-color: variables.$nav-bg-color;
+        ul{
+            li{
+                a{
+                    color: variables.$nav-text-color;
+                    &.active-menu-item{
+                        font-weight: 500;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
