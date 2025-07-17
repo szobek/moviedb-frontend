@@ -1,6 +1,5 @@
 <main>
     <ul>
-
         @for(genre of genres();track genre.id){
         <li (click)="setGenre(genre)">{{genre.name}}</li>    
         }
