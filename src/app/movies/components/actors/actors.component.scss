@@ -9,3 +9,12 @@
         gap: 15px;
     }
 }
+
+.actor-list{
+    ul{
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 15px;
+    }
+}

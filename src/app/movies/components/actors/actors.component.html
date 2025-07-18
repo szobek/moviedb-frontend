@@ -1,8 +1,11 @@
-<ul>
-    @for(actor of actors(); track actor.id){
-    <li (click)="getMovies(actor)">{{actor.fullName}}</li>    
-    }
-</ul>
+<div class="actor-list"> 
+
+    <ul>
+        @for(actor of actors(); track actor.id){
+            <li (click)="getMovies(actor)">{{actor.fullName}}</li>    
+        }
+    </ul>
+</div>
 <hr>
 @if(selectedActorMovies().length){
     <div class="movie-list">

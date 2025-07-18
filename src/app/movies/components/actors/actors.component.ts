@@ -22,7 +22,6 @@ export class ActorsComponent {
       .getAllActors()
       .pipe(
         map((result: any) => {
-          console.log(result);
           this.actors.set(result);
         })
       )
@@ -34,8 +33,6 @@ export class ActorsComponent {
     .pipe(
       map((result: any) => {
         this.selectedActorMovies.set(result);
-        console.log(this.selectedActorMovies().length);
-        
       })
     )
     .subscribe()
