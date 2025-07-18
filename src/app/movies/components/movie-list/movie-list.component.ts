@@ -1,6 +1,6 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { CallService } from '../../sercvices/call.service';
-import { map } from 'rxjs';
+import { catchError, map, of } from 'rxjs';
 import { Movie } from '../../models/Movie.model';
 import { MovieComponent } from '../movie/movie.component';
 
@@ -20,6 +20,10 @@ constructor(private readonly callService: CallService){
   .pipe(
     map((result:Movie[])=>{
       this.movies.set(result);
+    }),
+    catchError(()=>{
+      this.movies.set([]);
+      return of([]);
     })
   )
   .subscribe()
