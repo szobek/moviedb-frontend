@@ -1,9 +1,9 @@
 <main>
     <h1>Movies</h1>
+    <p>Genre: {{selectedGenre?.name}}</p>
     <div class="movie-list">
         @if(selectedGenre){
 
-            <p>Genre: {{selectedGenre?.name}}</p>
             @for(movieData of movies();track movieData.id){
                 <app-movie [inputMovie]="movieData"></app-movie>
             }

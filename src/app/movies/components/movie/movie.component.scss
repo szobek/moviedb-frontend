@@ -2,11 +2,11 @@
     max-width: 28vw;
     margin: auto;
 
-    border: 1px solid #DDF6D2;
+    border: 1px solid #585a57;
     border-radius: 10px;
     padding: 10px;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 768px) {
         max-width: 90vw;
     }
 
