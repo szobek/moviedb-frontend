@@ -1,8 +1,21 @@
-ul{
-    list-style-type: none;
-    li{
+.genres-container {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    .genre {
+        background-color: lightblue;
+        display: block;
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        border-radius: 12px;
         padding: 10px;
-        font-size: 1.8rem;
-        font-weight: bold;
+        box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+        -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     }
 }

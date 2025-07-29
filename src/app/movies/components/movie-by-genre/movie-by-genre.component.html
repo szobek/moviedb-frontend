@@ -1,10 +1,15 @@
 <main>
     <h1>Movies</h1>
     <div class="movie-list">
-        <p>Genre: {{selectedGenre?.name}}</p>
-        @for(movieData of movies();track movieData.movie_id){
-       <app-movie [inputMovie]="movieData"></app-movie>
-        }
+        @if(selectedGenre){
 
+            <p>Genre: {{selectedGenre?.name}}</p>
+            @for(movieData of movies();track movieData.id){
+                <app-movie [inputMovie]="movieData"></app-movie>
+            }
+        } @else {
+            <p>no genre selected</p>
+        }
+            
     </div>
 </main>

@@ -16,16 +16,20 @@ export class GenresComponent {
     private readonly callService: CallService,
     private readonly router: Router
   ) {
+    const colors = ['#FFB6C1', '#ADD8E6', '#90EE90', '#FFD700', '#FFA07A'];
     callService
       .getAllGenres()
       .pipe(
         map((res: any) => {
           this.genres.set(res);
+          this.genres().forEach((genre, index) => {
+            genre.color = colors[Math.floor(Math.random() * colors.length)];
+          });
         })
       )
       .subscribe();
   }
-
+  
   setGenre(genre: Genre) {
     this.callService.selectedGenre = genre;
     this.router.navigate(['/movies/genres', genre.id]);
