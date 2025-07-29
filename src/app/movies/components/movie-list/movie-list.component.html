@@ -1,7 +1,7 @@
 <main>
     <h1>Movies</h1>
     <div class="movie-list">
-        @for(movieData of movies();track movieData.movie_id){
+        @for(movieData of movies();track movieData.id){
        <app-movie [inputMovie]="movieData"></app-movie>
         }
 
