@@ -11,7 +11,7 @@
     <div class="movie-list">
 
         <ul>
-            @for(movie of selectedActorMovies(); track movie.movie_id){
+            @for(movie of selectedActorMovies(); track movie.id){
                 <li><app-movie [inputMovie]="movie" /></li>
             }
         </ul>

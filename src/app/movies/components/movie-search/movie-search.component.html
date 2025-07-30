@@ -1,36 +1,67 @@
-<h1>criterias</h1>
-<input type="text" [(ngModel)]="criteria.title" placeholder="Title">
-<select name="" id="" [(ngModel)]="criteria.genre">
-    <option value="">Please select genre</option>
-    @for(genre of genres();track genre.id){
-    <option value="{{genre.id}}">{{genre.name}}</option>
-    }
-</select>
-<select name="" id="" [(ngModel)]="criteria.actor">
-    <option value="">Please select an actor</option>
-    @for(actor of actors();track actor.id){
-    <option value="{{actor.fullName}}">{{actor.fullName}}</option>
-    }
-</select>
-<select name="" id="" [(ngModel)]="criteria.year">
-    <option value="">Please select a year</option>
-    @for(year of years;track year){
-    <option value="{{year}}">{{year}}</option>
-    }
-</select>
-<select name="" id="" [(ngModel)]="criteria.rating">
-    <option value="">Please select a rating</option>
-    @for(rate of ratings;track rate){
-    <option value="{{rate}}">{{rate}}</option>
-    }
-</select>
-<button (click)="search()">Search</button>
-<div class="movie-list">
-    @if(movies().length){
-    <h2>results</h2>
+<main>
 
-    @for(movieData of movies();track movieData.movie_id){
+    <h1>criterias</h1>
+    <div class="criterias">
+        <div class="criteria-input-container">
+            <label for="title">Title:</label>
+            <input type="text" [(ngModel)]="criteria.title" placeholder="Title">
+        </div>
+        <div class="criteria-input-container">
+            <label for="genre">Genre:</label>
+            <select name="" id="genre" [(ngModel)]="criteria.genre">
+                <option value="%">Please select genre</option>
+                @for(genre of genres();track genre.id){
+                <option value="{{genre.id}}">{{genre.name}}</option>
+                }
+            </select>
+        </div>
+
+        <div class="criteria-input-container">
+            <label for="actor">Actor:</label>
+            <select name="" id="actor" [(ngModel)]="criteria.actor">
+                <option value="%">Please select an actor</option>
+                @for(actor of actors();track actor.id){
+                <option value="{{actor.fullName}}">{{actor.fullName}}</option>
+                }
+            </select>
+        </div>
+        <div class="criteria-input-container">
+            <label for="from_year">from year:</label>
+            <select name="" id="from_year" [(ngModel)]="criteria.from_year">
+                <option value="">Please select a year</option>
+                @for(year of years;track year){
+                <option value="{{year}}">{{year}}</option>
+                }
+            </select>
+        </div>
+        <div class="criteria-input-container">
+            <label for="to_year">to year:</label>
+            <select name="" id="to_year" [(ngModel)]="criteria.to_year">
+                <option value="">Please select a year</option>
+                @for(year of years;track year){
+                <option value="{{year}}">{{year}}</option>
+                }
+            </select>
+
+        </div>
+
+        <div class="criteria-input-container">
+            <label for="rating">Rating (minimum):</label>
+            <select name="" id="rating" [(ngModel)]="criteria.rating">
+                <option value="">Please select a rating</option>
+                @for(rate of ratings;track rate){
+                <option value="{{rate}}">{{rate}}</option>
+                }
+            </select>
+        </div>
+    </div>
+    <button class="btn-search" (click)="search()">Search</button>
+    <div class="movie-list">
+        @if(movies().length){
+
+        @for(movieData of movies();track movieData.id){
         <app-movie [inputMovie]="movieData"></app-movie>
-    }
-}
-</div>
+        }
+        }
+    </div>
+</main>

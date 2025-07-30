@@ -14,10 +14,11 @@ import { MovieComponent } from '../movie/movie.component';
 })
 export class MovieSearchComponent {
   criteria = {
-    genre: '',
-    actor: '',
+    genre: '%',
+    actor: '%',
     rating: 1,
-    year: 1950,
+    from_year: 1950,
+    to_year: new Date().getFullYear(),
     title: '',
   };
   genres: WritableSignal<Genre[]> = signal([]);

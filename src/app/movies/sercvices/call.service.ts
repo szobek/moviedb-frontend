@@ -29,7 +29,7 @@ export class CallService {
     return this.http.get(`${this._BASE_URL}/actors`)
   }
   searchMovies(criteria:any){
-    return this.http.get(`${this._BASE_URL}/search`)
+    return this.http.get(`${this._BASE_URL}/search`,{params:criteria})
   }
   getMoviesByActor(id:number){
     return this.http.get(`${this._BASE_URL}/actors/${id}`)

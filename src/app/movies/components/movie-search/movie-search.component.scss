@@ -1,3 +1,58 @@
+main {
+    padding: 10px;
+
+    .criterias {
+        margin: auto;
+        width: 50%;
+        border: 1px solid black;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+
+        .criteria-input-container {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                border: 1px solid black;
+                border-radius: 10px;
+                padding: 10px;
+                outline: none;
+
+                &:active,
+                &:focus {
+                    border: 1px solid rgb(69, 150, 132);
+                }
+            }
+
+            select {
+                border: 1px solid rgb(37, 32, 32);
+                border-radius: 10px;
+                padding: 10px;
+                outline: none;
+
+                &:active,
+                &:focus {
+                    border: 1px solid rgb(69, 150, 132);
+                }
+            }
+        }
+    }
+
+    .btn-search {
+        margin: 20px auto;
+        background-color: aqua;
+        border-color: transparent;
+        border-radius: 10px;
+        padding: 10px;
+        cursor: pointer;
+        display: block;
+        width: 100px;
+    }
+}
+
 .movie-list {
     display: flex;
     flex-direction: column;
@@ -6,6 +61,4 @@
     font-size: calc(10px + 1vmin);
     color: black;
     gap: 15px;
-
-    
 }
