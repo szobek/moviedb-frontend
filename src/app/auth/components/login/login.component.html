@@ -1,0 +1,26 @@
+<main>
+    <h4>Login Form</h4>
+    <div class="form-container">
+        @if(error){
+        <p class="error">{{error.message}}</p>
+        }
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <div class="my-input-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" formControlName="email">
+            </div>
+
+            <div class="my-input-group">
+                <label for="password">Password</label>
+                <input type="text" id="password" formControlName="password">
+            </div>
+
+            <div class="my-input-group mt-2">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+
+
+    </div>
+</main>

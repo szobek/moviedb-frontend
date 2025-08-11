@@ -18,10 +18,22 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/movies/actors" routerLinkActive="active-menu-item" >Actors</a>
       </li>
-
-      <li class="nav-item">
-        <a href="" class="nav-link" routerLink="/auth/register">Register</a>
-      </li>
+      @if(!loggedUser){
+        <li class="nav-item">
+          <a href="" class="nav-link" routerLink="/auth/register">Register</a>
+        </li>
+        
+        <li class="nav-item">
+          <a href="" class="nav-link" routerLink="/auth/login">Login</a>
+        </li>
+      } @else {
+        <li class="nav-item">
+          <a href="" class="nav-link" routerLink="/dashboard">dashboard</a>
+        </li>
+        <li class="nav-item">
+          <p>Welcome {{loggedUser.email}}</p>
+        </li>
+      }
       
     </ul>
   </div>
