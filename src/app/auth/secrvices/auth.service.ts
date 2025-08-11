@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../models/User.model';
@@ -17,6 +17,14 @@ export class AuthService {
 
   login(user:User):Observable<any>{
     return this.http.post(`${this._BASE_URL}/login`,user)
+  }
+
+  getUsers(){
+     const headers = new HttpHeaders({
+      'Authorization': 'Bearer '+this.user.value?.accessToken||''
+    });
+    return this.http.get(`${this._BASE_URL}/users`,{headers})
+
   }
   
 }

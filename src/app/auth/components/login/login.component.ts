@@ -22,9 +22,11 @@ export class LoginComponent {
   });
 
   constructor(){
-    if(this.authService.user.value){
-      this.router.navigate(['/movies'])
-    }
+    // if(this.authService.user.value!==null){
+    //   this.router.navigate(['/movies'])
+    // }
+    console.log("constructor in login");
+    
   }
 
   onSubmit() {

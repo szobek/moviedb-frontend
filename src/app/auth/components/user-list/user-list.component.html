@@ -1,0 +1,10 @@
+<div class="data-card">
+
+    @for (user of users(); track user.id) {
+      <strong>{{ user.email }}</strong> | 
+      <strong>{{ user.approved?"approved":"not approved" }}</strong>
+  }
+  @empty {
+    <li>No users.</li>
+  }
+</div>
