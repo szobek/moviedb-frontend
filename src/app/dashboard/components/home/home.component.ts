@@ -1,8 +1,9 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, computed, EventEmitter, inject, Output } from '@angular/core';
 import { UserListComponent } from '../../../auth/components/user-list/user-list.component';
 import { AuthService } from '../../../auth/secrvices/auth.service';
 import { tap } from 'rxjs/operators';
 import { User } from '../../../auth/models/User.model';
+import { SharedService } from '../../../../shared.service';
 
 @Component({
   selector: 'mmdb-home',
@@ -12,7 +13,9 @@ import { User } from '../../../auth/models/User.model';
 })
 export class HomeComponent {
   authService: AuthService = inject(AuthService);
-@Output() getUsers: EventEmitter<any>=new EventEmitter();
+  sharedService:SharedService = inject(SharedService)
+   getUsersFromDb = computed(() => this.sharedService.getUsers());
+
   refreshToken() {
     this.authService
       .updateAccessToken()
