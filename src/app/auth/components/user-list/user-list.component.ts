@@ -1,7 +1,7 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { AuthService } from '../../secrvices/auth.service';
 import { User } from '../../models/User.model';
-import { map } from 'rxjs';
+import { map, tap } from 'rxjs';
 
 @Component({
   selector: 'mmdb-user-list',
@@ -13,6 +13,21 @@ export class UserListComponent {
   users: WritableSignal<User[]> = signal([]);
   constructor(private readonly authService: AuthService) {}
   ngOnInit(): void {
+    this.getAllUserFromDb();
+  }
+  approve(user: User) {
+    this.authService
+      .approveUser(user)
+      .pipe(
+        tap((res: any) => {
+          this.getAllUserFromDb();
+          return res;
+        })
+      )
+      .subscribe();
+  }
+
+  getAllUserFromDb() {
     this.authService
       .getUsers()
       .pipe(

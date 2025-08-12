@@ -1,10 +1,31 @@
 <div class="data-card">
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users(); track user.id) {
+      <tr>
+        <td>{{ user.email }}</td>
+        <td>{{ user.approved?"approved":"not approved" }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          @if(!user.approved){
+            <button class="btn btn-primary" (click)="approve(user)">approve</button>
+          }
+        </td>
+      </tr>
+      }
+      @empty {
+      <tr colspan="4">No users.</tr>
+      }
+    </tbody>
+  </table>
 
-    @for (user of users(); track user.id) {
-      <strong>{{ user.email }}</strong> | 
-      <strong>{{ user.approved?"approved":"not approved" }}</strong>
-  }
-  @empty {
-    <li>No users.</li>
-  }
+
 </div>

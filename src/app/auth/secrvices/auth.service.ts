@@ -26,5 +26,13 @@ export class AuthService {
     return this.http.get(`${this._BASE_URL}/users`,{headers})
 
   }
-  
+  approveUser(user:User){
+    const data={
+      id:user.id,
+    }
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer '+this.user.value?.accessToken||''
+    });
+    return this.http.patch(`${this._BASE_URL}/approval`,data,{headers})
+  }
 }
