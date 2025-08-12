@@ -26,9 +26,9 @@ export class AuthService {
     return this.http.get(`${this._BASE_URL}/users`,{headers})
 
   }
-  approveUser(user:User){
+  approveUser(user:User={id:'-1'} as User){
     const data={
-      id:user.id,
+      id:user.id
     }
     const headers = new HttpHeaders({
       'Authorization': 'Bearer '+this.user.value?.accessToken||''
