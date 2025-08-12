@@ -45,4 +45,16 @@ export class UserListComponent {
       )
       .subscribe();
   }
+  promote(user: User) {
+    this.authService.promoteUser(user)
+    .pipe(
+      tap((res: any) => {
+          if(res.success){
+            this.getAllUserFromDb()
+          }
+          return res;
+        })
+    )
+    .subscribe();
+  }
 }

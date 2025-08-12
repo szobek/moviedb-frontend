@@ -38,6 +38,15 @@ export class AuthService {
     const headers = new HttpHeaders({
       refresh_token: this.user.value?.refreshToken || '',
     });
-    return this.http.put(`${this._BASE_URL}/refresh-token`,null, { headers });
+    return this.http.put(`${this._BASE_URL}/refresh-token`, null, { headers });
+  }
+  promoteUser(user: User = { id: '-1' } as User) {
+    const data = {
+      id: user.id,
+    };
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + this.user.value?.accessToken || '',
+    });
+    return this.http.patch(`${this._BASE_URL}/promotion`, data, { headers });
   }
 }

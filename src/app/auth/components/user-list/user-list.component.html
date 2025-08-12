@@ -18,6 +18,9 @@
           @if(!user.approved){
             <button class="btn btn-primary" (click)="approve(user)">approve</button>
           }
+          @if(user.role==="user"){
+            <button class="btn btn-primary" (click)="promote(user)">Promote</button>
+          }
         </td>
       </tr>
       }
