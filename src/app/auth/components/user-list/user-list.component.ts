@@ -13,27 +13,25 @@ import { SharedService } from '../../../../shared.service';
 export class UserListComponent {
   users: WritableSignal<User[]> = signal([]);
   getUsersFromDb = computed(() => this.sharedService.getUsers());
-  constructor(private readonly authService: AuthService, private readonly sharedService: SharedService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly sharedService: SharedService
+  ) {}
   ngOnInit(): void {
     this.getAllUserFromDb();
   }
   approve(user: User) {
     this.authService
-      .approveUser(user)
-      .pipe(
-        tap((res: any) => {
-          this.getAllUserFromDb();
-          if(this.getUsersFromDb()){
+    .approveUser(user)
+    .pipe(
+      tap((res: any) => {
+          if(res.success){
             this.getAllUserFromDb()
           }
           return res;
         })
       )
       .subscribe();
-  }
-
-  sendMessage() {
-    this.sharedService.setActions(true);
   }
 
   getAllUserFromDb() {
