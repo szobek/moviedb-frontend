@@ -49,4 +49,14 @@ export class AuthService {
     });
     return this.http.patch(`${this._BASE_URL}/promotion`, data, { headers });
   }
+  deleteUser(user: User = { id: '-1' } as User) {
+    const data = {
+      id: user.id,
+    };
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + this.user.value?.accessToken || '',
+    });
+    return this.http.delete(this._BASE_URL,  { headers,body:data });
+
+  }
 }

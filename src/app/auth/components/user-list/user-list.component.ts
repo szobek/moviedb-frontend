@@ -57,4 +57,16 @@ export class UserListComponent {
     )
     .subscribe();
   }
+  delete(user: User) {
+    this.authService.deleteUser(user)
+    .pipe(
+      tap((res: any) => {
+          if(res.success){
+            this.getAllUserFromDb()
+          }
+          return res;
+        })
+        )
+      .subscribe();
+  }
 }
