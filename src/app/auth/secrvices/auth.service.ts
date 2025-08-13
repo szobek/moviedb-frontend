@@ -20,19 +20,13 @@ export class AuthService {
   }
 
   getUsers() {
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + this.user.value?.accessToken || '',
-    });
-    return this.http.get(`${this._BASE_URL}/users`, { headers });
+    return this.http.get(`${this._BASE_URL}/users`);
   }
   approveUser(user: User = { id: '-1' } as User) {
     const data = {
       id: user.id,
     };
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + this.user.value?.accessToken || '',
-    });
-    return this.http.patch(`${this._BASE_URL}/approval`, data, { headers });
+    return this.http.patch(`${this._BASE_URL}/approval`, data);
   }
   updateAccessToken() {
     const headers = new HttpHeaders({
@@ -44,19 +38,13 @@ export class AuthService {
     const data = {
       id: user.id,
     };
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + this.user.value?.accessToken || '',
-    });
-    return this.http.patch(`${this._BASE_URL}/promotion`, data, { headers });
+    return this.http.patch(`${this._BASE_URL}/promotion`, data);
   }
   deleteUser(user: User = { id: '-1' } as User) {
     const data = {
       id: user.id,
     };
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + this.user.value?.accessToken || '',
-    });
-    return this.http.delete(this._BASE_URL,  { headers,body:data });
+    return this.http.delete(this._BASE_URL,  { body:data });
 
   }
 }
